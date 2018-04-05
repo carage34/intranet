@@ -10,5 +10,6 @@ class Ajout extends CI_Controller {
 		$sousCat = $this->categorie_model->getSousCategorie();
 		$data=array("categories"=>$categorie,  "sousCategorie"=>$sousCat);
 		$this->load->view('ajout_categorie', $data);
+		
 	}
 }
