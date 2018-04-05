@@ -1,0 +1,462 @@
+.coucou {
+	font-size:16px;
+}
+.coucouu {
+  font-size:16px;
+  font-color:black;
+}
+
+@media screen and (max-width:680px) {
+	nav{
+		height: 100px;
+	}
+  ul.topnav li:not(:first-child) {display: none;}
+  ul.topnav li.icon {
+    float: right;
+    display: inline-block;
+  }
+}
+
+@media screen and (max-width:680px) {
+		nav{
+		height: 100px;
+	}
+  ul.topnav.responsive {position: relative;}
+  ul.topnav.responsive li.icon {
+    position: absolute;
+    right: 5;
+    top: 0;
+  }
+  ul.topnav.responsive li {
+    float: none;
+    display: inline;
+  }
+  ul.topnav.responsive li a {
+    display: block;
+    text-align: left;
+  }
+   ul.topnav.responsive
+   {
+   }
+}
+
+html
+{
+	height: 100%;
+}
+
+body
+{
+	height: 100%;
+	margin: 0;
+	background-color: #ededed;
+	position: relative;
+	font-family: 'Roboto';
+}
+
+h3 {
+	font-weight:200;
+	font-size: 1em;
+}
+
+#wrap
+{
+	min-height: 100%;
+	position: relative;
+
+}
+
+#main
+{
+	position: relative;
+	padding-bottom: 100px;
+}
+
+nav
+{
+	text-align:center;
+	float: right;
+	padding-top: 13px;
+	padding-right: 80px;
+	z-index: 0;
+}
+
+nav ul
+{
+	list-style-type: none;
+	
+}
+
+nav li 
+{
+	display: inline-block;
+	
+}
+
+nav ul li a 
+{
+	text-decoration: none;
+	color:#9c9c9c;
+	padding: 0 30px;
+	font-size: 20px;
+
+	
+	/*transition: color ease 1s;*/
+}
+
+nav ul li a:hover
+{
+	color: white;
+	width: 30px;
+}
+
+header
+{
+	font-family: 'Roboto';
+	width: 100%;
+	height: 90px;
+	background-color: #2f2f2f;
+	border: 1px solid black;
+	position: relative;
+	z-index: 1;
+	
+}
+
+header h2
+{
+	display: inline-block;
+	padding-top: 5px;
+	color:white;
+	padding-left: 100px;
+}
+
+section div#section
+{
+	font-family: 'Open Sans';
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 50px;
+	width: 50%;
+	height: auto;
+	background-color: white;
+	padding: 30px;
+	box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+}
+
+section div h2
+{
+	font-family: 'Arial';
+	padding-top: 5px;
+	color: black;
+}
+
+.profile-list
+{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.title
+{
+	display: block;
+    width: 120px;
+    float: left;
+    color: #333333;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 20px;
+    text-transform: uppercase;
+}
+
+.cont
+{
+	display: block;
+    margin-left: 150px;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #9da0a7;
+}
+
+.profile-title
+{
+	font-size: 36px;
+    line-height: 1.1;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.profile-title span
+{
+	font-weight: 300;
+}
+
+.section-txt
+{
+	font-family: 'Open Sans';
+	color: #000;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.8;
+    text-align: center;
+    margin-top: 30px;
+    padding-left: 5%;
+    padding-right: 5%;
+    width: 50%;
+    margin: auto;
+}
+
+.active
+{
+	color:white;
+}
+
+.banniere
+{
+	font-family: 'Roboto';
+	padding: 0px;
+	background-image: url('../img/header-portfolio.svg');
+    height: 100px;
+}
+
+
+footer
+{
+	font-family: 'Open Sans';
+	position: absolute;
+	bottom: 0;
+	height: 50px;
+	width: 100%;
+	border : 1px solid black;
+	background-color: black;
+	color : #666;
+	text-align: center;
+
+}
+
+footer a
+{
+	color : #666;
+	text-decoration-style: none;
+}
+
+.img-logo {
+	height: 50px;
+	width: 50px;
+}
+
+.info
+{
+	font-family: 'Roboto';
+	margin-left: 10%;
+	width: 35%;
+}
+
+.title-info
+{
+	font-weight: 400;
+	color:#EE6557;
+	font-size: 22px;
+}
+
+.content-info
+{
+	display: flex;
+	flex-wrap: wrap;
+	line-height: normal;
+}
+
+.logo
+{
+	display: inline-block;
+	margin: 15px;
+}
+
+
+.title-activite
+{
+	text-align: center;
+}
+
+.ici
+{
+	text-align: center;
+}
+
+.content-legales
+{
+	width: 50%;
+	margin: 0 auto;
+}
+
+
+
+.copyright {
+  text-align: center;
+}
+
+.profil_menu{
+	height: 50px;
+	width: 30px;
+	float: left;
+}
+
+.photo_equipe{
+	float: right;
+	width: 100px;
+	height: 100px;
+}
+
+.img_logo{
+	width: 100px;
+	height: 100px;
+}
+
+/*CSS Form */
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
+.contact {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.contact {
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-weight: 100;
+  font-size: 12px;
+  line-height: 30px;
+  color: #777;
+  margin-left: 10%;
+  margin-top: -5%;
+
+}
+
+.container {
+  max-width: 400px;
+  width: 100%;
+  margin-top: -13%;
+  margin : 0 auto;
+  
+  
+}
+
+#contact input[type="text"],
+#contact input[type="email"],
+#contact input[type="tel"],
+#contact input[type="url"]
+#contact input[type="password"],
+#contact textarea,
+#contact button[type="submit"] {
+  font: 400 12px/16px "Roboto", Helvetica, Arial, sans-serif;
+}
+
+#contact {
+  background: #F9F9F9;
+  padding: 25px;
+  margin: 150px 0;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+#contact h3 {
+  display: block;
+  font-size: 30px;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+
+#contact h4 {
+  margin: 5px 0 15px;
+  display: block;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+fieldset {
+  border: medium none !important;
+  margin: 0 0 10px;
+  min-width: 100%;
+  padding: 0;
+  width: 100%;
+}
+
+#contact input[type="text"],
+#contact input[type="email"],
+#contact input[type="password"],
+#contact input[type="tel"],
+#contact input[type="url"]
+#contact textarea {
+  width: 100%;
+  border: 1px solid #ccc;
+  background: #FFF;
+  margin: 0 0 5px;
+  padding: 10px;
+}
+
+#contact input[type="text"]:hover,
+#contact input[type="email"]:hover,
+#contact input[type="tel"]:hover,
+#contact input[type="password"]:hover,
+#contact input[type="url"]:hover
+#contact textarea:hover {
+  -webkit-transition: border-color 0.3s ease-in-out;
+  -moz-transition: border-color 0.3s ease-in-out;
+  transition: border-color 0.3s ease-in-out;
+  border: 1px solid #aaa;
+}
+
+#contact textarea {
+  height: 100px;
+  max-width: 100%;
+  resize: none;
+}
+
+#contact button[type="submit"] {
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  background: #46a2d9;
+  color: #FFF;
+  margin: 0 0 5px;
+  padding: 10px;
+  font-size: 15px;
+}
+
+#contact button[type="submit"]:active {
+  box-shadow: inset 0 3px 9px rgba(0, 0, 0, 0.5);
+}
+
+.copyright {
+  text-align: center;
+}
+
+#contact input:focus,
+#contact textarea:focus {
+  outline: 0;
+  border: 1px solid #aaa;
+}
+
+::-webkit-input-placeholder {
+  color: black;
+}
+
+:-moz-placeholder {
+  color: black;
+}
+
+::-moz-placeholder {
+  color: black;
+}
+
+:-ms-input-placeholder {
+  color: black;
+}
+
+
