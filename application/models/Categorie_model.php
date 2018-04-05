@@ -13,4 +13,21 @@
  		$res = $this->db->query($query);
  		return $res->result();
  	}
+
+ 	public function insertCategorie($categorie) {
+ 		$this->load->database();
+ 		$catInfo=array(
+ 			'nomC'=>$categorie
+ 		);
+ 		$this->db->insert('categorie', $catInfo);
+ 	}
+
+ 	public function insertSous($sousCategorie, $idCategorie) {
+ 		$this->load->database();
+ 		$sousInfo = array(
+ 			'idCategorie'=>$idCategorie,
+ 			'nomS'=>$sousCategorie
+ 		);
+ 		$this->db->insert('sousCategorie', $sousInfo);
+ 	}
  }

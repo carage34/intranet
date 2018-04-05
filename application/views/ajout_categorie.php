@@ -65,16 +65,16 @@
         <input type="submit" class="btn btn-primary" id="env"></input><br/>
         <?php echo form_close(); ?>
         <hr/><br/>
-        <h4 style="text-align:center;">Ajouter une sous catégorie<h4>
+        <h4 style="text-align:center;">Ajouter une sous catégorie</h4>
         	<?php  echo form_open('ajout/sous');
         		   echo validation_errors();
         	 ?>
-       <p style="font-size:17px;">Choisir une catégorie</p>
+       <label>Choisir une catégorie : </label>
        <fieldset>
-       	<select name="sousC">
+       	<select name="cate">
        		<option value="none" selected="selected">Choisissez une catégorie</option>
        		<?php foreach($categories as $categorie): ?>
-       		<option value="<?php echo $categorie->id ?>"><?php  echo $categorie->nomC;?></option>
+       		<option value="<?php echo $categorie->id; ?>"><?php  echo $categorie->nomC;?></option>
        	<?php  endforeach; ?>
        	</select><br/>
        </fieldset>
@@ -82,7 +82,7 @@
         <fieldset>
         	<?php $scat = array('type'=>'text','name'=>'scat', 'id'=>'scat', 'placeholder'=>'Nom de la sous-catégorie', 'value'=>set_value('scat'), 'class'=>'form-control'); echo form_input($scat); ?>
         </fieldset><br/>
-        <input type="submit" class="btn btn-primary" id="envS"></input><br/>
+        <input type="submit" class="btn btn-primary" id="envS" name="submit"></input><br/>
       </section>
     </div>
   </div>
