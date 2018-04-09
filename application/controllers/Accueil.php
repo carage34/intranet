@@ -10,6 +10,7 @@ class Accueil extends CI_Controller {
 		$categorie = $this->categorie_model->getCategorie();
 		$sousCat = $this->categorie_model->getSousCategorie();
 		$data=array("categories"=>$categorie,  "sousCategorie"=>$sousCat);
-		$this->load->view('indexx', $data);
+		$this->load->view('header', $data);
+		$this->load->view('indexx');
 	}
 }
