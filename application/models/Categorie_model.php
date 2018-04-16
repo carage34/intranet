@@ -14,6 +14,13 @@
  		return $res->result();
  	}
 
+ 	public function getSousCategorieWhere($st) {
+ 		$this->load->database();
+ 		$query = "SELECT idCategorie, nomS, id FROM sousCategorie WHERE idCategorie = ?";
+ 		$res = $this->db->query($query, array($st));
+ 		return $res->result();		
+ 	}
+
  	public function insertCategorie($categorie) {
  		$this->load->database();
  		$catInfo=array(

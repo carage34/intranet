@@ -15,14 +15,14 @@
         </fieldset><br/>
         <input type="submit" class="btn btn-primary" id="submit"></input><br/>
         <?php echo form_close(); ?>
-        <hr/><br/>
+        <hr><br/>
         <h4 style="text-align:center;">Ajouter une sous catégorie</h4>
         	<?php  echo form_open('ajout/sous');
         		   echo validation_errors();
         	 ?>
        <label>Choisir une catégorie : </label>
        <fieldset>
-       	<select name="cate">
+       	<select name="cate" class="form-control">
        		<option value="none" selected="selected">Choisissez une catégorie</option>
        		<?php foreach($categories as $categorie): ?>
        		<option value="<?php echo $categorie->id; ?>"><?php  echo $categorie->nomC;?></option>
