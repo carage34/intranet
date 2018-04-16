@@ -6,13 +6,13 @@ class Add extends CI_Controller {
 	public function index()
 	{
 		$this->load->model('categorie_model');
-		$cat = $this->input->post("cate");
-		if($cat) echo "lol";
 		$categorie = $this->categorie_model->getCategorie();
 		$sousCat = $this->categorie_model->getSousCategorie();
+		$types = $this->categorie_model->getType();
 		$data=array("categories"=>$categorie,  "sousCategorie"=>$sousCat);
 		$this->load->view('header', $data);
-		$this->load->view('ajout_contenu');
+		$donne = array('types'=>$types);
+		$this->load->view('ajout_contenu', $donne);
 	}
 
 	public function getSousCat($cat) {

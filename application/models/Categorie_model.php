@@ -37,4 +37,10 @@
  		);
  		$this->db->insert('sousCategorie', $sousInfo);
  	}
+ 	public function getType() {
+ 	    $this->load->database();
+ 	    $query="SELECT * FROM typeContenu";
+ 	    $res=$this->db->query($query);
+ 	    return $res->result();
+    }
  }
