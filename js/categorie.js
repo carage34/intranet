@@ -1,5 +1,6 @@
 $(function() {
     $('#msg').hide();
+    $('#msg').text("Veuillez remplir tous les champs");
 	$("#cat").change(function() {
 		var value = $(this).children(":selected").attr("value");
 		var real = $( "#cat option:selected" ).text();
@@ -42,25 +43,28 @@ $(function() {
 	});
 
 	$('#valider').click(function(event){
-        event.preventDefault();
-        //$("#scat_l").css("color", "black");
-        //$('#cat_l').css("color", "black");
-        //$('#title_l').css("color", "black");
-	    if($('#title').val().trim()!=="") {
+		$('#msg').hide();
+        
+        var scat = $("#scat_l");
+        var cat = $('#cat_l')
+        var title = $('#title_l');
+	    //if($('#title').val().trim()!=="") {
 	        if($("#cat").find(":selected").attr("value")!=="none") {
 	            if($('#sousCat').find(":selected").attr("value")!=="none") {
 	                //TODO
                 } else {
-	                //$("#scat_l").css("color", "red");
+                    console.log("ahah");
+	                scat.css({"color" : "red"});
                     $('#msg').show();
                 }
             } else {
-	            //$('#cat_l').css("color", "red");
-                $('#msg').show();
-            }
+	            cat.css({"color": "red"});
+                //$('#msg').show();
+            }/*
         } else {
-	        //$('#title_l').css("color", "red");
-            $('#msg').show();
-        }
+        	//console.log("ahah");
+	        //title.css("color", "red");
+            //$('#msg').show();
+        }*/
     });
 });

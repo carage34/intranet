@@ -29,7 +29,7 @@
          </select><br/ >
        </fieldset>
        <fieldset>
-           <label id="titre_l">Titre</label>
+           <label class="titre_l" style="color:black;">Titre</label>
         <input type="text" name="title" placeholder="Titre" id="title" class="form-control" required/>
        </fieldset><br/ >
        <fieldset>
