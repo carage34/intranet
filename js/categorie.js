@@ -1,4 +1,3 @@
-var valeur;
 $(function() {
     $('#msg').hide();
     $('#msg').text("Veuillez remplir tous les champs");
@@ -30,12 +29,13 @@ $(function() {
 		}
 	});
 	$('#choix').change(function(){
-		valeur = $(this).children(":selected").attr("value");
-		if(value!="none"){
+		valeur = $(this).find(":selected").attr("value");
+        console.log("valeur "+valeur);
+		if(valeur!=="none"){
 			$.ajax({
 				type: "POST",
 				url: 'show',
-				data: {"id":value},
+				data: {"id":valeur},
 				dataType:"HTML"
 			}).done(function(response){
 				$('#contenu').html(response);
@@ -43,8 +43,10 @@ $(function() {
 		}
 	});
 
-	$('#valider').submit(function(e){
-	    e.preventDefault();
+    $(document).on('click','#valider',function(e){
+        e.preventDefault();
+        var form = $(this).parent().closest('form');
+        e.stopImmediatePropagation();
 		$('#msg').hide();
         var ok = false;
         var scat = $("#scat_l");
@@ -71,22 +73,31 @@ $(function() {
         	choix.css({"color": "red"});
             ok=true;
 		}
-		if(valeur===1) {
-            if ($('#upload').get(0).files.length === 0) {
-                alert("Veuillez choisir un fichier");
-                ok=true;
-            }
-		}
+        var valeur = $("#choix").find(":selected").attr("value");
+        console.log(valeur);
+
 		if(ok===true) {
         	$('#msg').show();
 		} else {
-            if(valeur===1) {
-                if($('#upload').get(0).file.length===0) {
-                    //alert("Veuillez choisir un fichier");
+            if(valeur=="1") {
+                if($('#upload').val()) {
+                    //alert("Fichier choisi");
+                    var formdata = new FormData(form);
+                    $.ajax({
+                        url: 'add/insertData',
+                        data: formdata,
+                        processData:false,
+                        contentType:false,
+                        type: 'POST',
+                        success: function(data) {
+                            alert(data);
+                        }
+                    });
                 } else {
-
+                    //alert("Veuillez choisir un fichier");
                 }
             }
         }
+        return false;
     });
 });

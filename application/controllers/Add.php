@@ -26,4 +26,9 @@ class Add extends CI_Controller {
 		}
 		echo json_encode($html);
 	}
+
+	public function insertData() {
+	    $title = $this->input->post("title");
+	    echo $title;
+    }
 }
