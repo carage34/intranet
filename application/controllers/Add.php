@@ -28,7 +28,23 @@ class Add extends CI_Controller {
 	}
 
 	public function insertData() {
-	    $title = $this->input->post("title");
-	    echo $title;
+	    if($this->input->post("choix"==1)) {
+            $config['upload_path'] = './upload';
+            $config['allowed_types'] = 'gif|jpg|png|doc|txt';
+            $config['max_size'] = 1024 * 8;
+            $this->load->library("upload", $config);
+            if (!$this->upload->do_upload('contenu')) {
+                echo $this->upload->display_errors();
+
+            } else {
+                $data = $this->upload->data();
+                echo $data['file_name'];
+                //$this->load->view('upload_success', $data);
+            }
+        }
+    }
+
+    public function upload_files() {
+
     }
 }

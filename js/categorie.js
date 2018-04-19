@@ -43,9 +43,9 @@ $(function() {
 		}
 	});
 
-    $(document).on('click','#valider',function(e){
+    $(document).on('submit','#formu',function(e){
         e.preventDefault();
-        var form = $(this).parent().closest('form');
+        var form = $('#formu');
         e.stopImmediatePropagation();
 		$('#msg').hide();
         var ok = false;
@@ -75,19 +75,20 @@ $(function() {
 		}
         var valeur = $("#choix").find(":selected").attr("value");
         console.log(valeur);
-
+		var titre = $('#title').val();
 		if(ok===true) {
         	$('#msg').show();
 		} else {
             if(valeur=="1") {
                 if($('#upload').val()) {
                     //alert("Fichier choisi");
-                    var formdata = new FormData(form);
+                    var formdata = new FormData(this);
                     $.ajax({
                         url: 'add/insertData',
                         data: formdata,
                         processData:false,
                         contentType:false,
+						cache:false,
                         type: 'POST',
                         success: function(data) {
                             alert(data);
