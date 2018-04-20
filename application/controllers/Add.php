@@ -28,7 +28,7 @@ class Add extends CI_Controller {
 	}
 
 	public function insertData() {
-	    if($this->input->post("choix"==1)) {
+	    if($this->input->post("choix")==1) {
             $config['upload_path'] = './upload';
             $config['allowed_types'] = 'gif|jpg|png|doc|txt';
             $config['max_size'] = 1024 * 8;
@@ -39,12 +39,17 @@ class Add extends CI_Controller {
             } else {
                 $data = $this->upload->data();
                 echo $data['file_name'];
-                //$this->load->view('upload_success', $data);
+                echo "Fichier upload avec succès";
+                var_dump($this->input->post("contenu"));
             }
         }
-    }
+        $catgorie = $this->input->post("cate");
+        $soucCat = $this->input->post("sousCate");
+        $contenu = $this->input->post("contenu");
+        $desc = $this->input->post("desc");
+        if($desc=="") $desc=null;
+        $titre = $this->input->post("title");
 
-    public function upload_files() {
 
     }
 }

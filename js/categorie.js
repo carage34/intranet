@@ -81,7 +81,7 @@ $(function() {
 		} else {
             if(valeur=="1") {
                 if($('#upload').val()) {
-                    //alert("Fichier choisi");
+                    alert("Fichier choisi");
                     var formdata = new FormData(this);
                     $.ajax({
                         url: 'add/insertData',
@@ -91,11 +91,11 @@ $(function() {
 						cache:false,
                         type: 'POST',
                         success: function(data) {
-                            alert(data);
+                            console.log(data);
                         }
                     });
                 } else {
-                    //alert("Veuillez choisir un fichier");
+                    alert("Veuillez choisir un fichier");
                 }
             }
         }

@@ -43,4 +43,8 @@
  	    $res=$this->db->query($query);
  	    return $res->result();
     }
+
+    public function insertContenu($titre, $desc, $cat, $sousCat, $contenu) {
+
+    }
  }
