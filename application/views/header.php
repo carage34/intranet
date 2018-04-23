@@ -38,7 +38,7 @@
         <div class="dropdown-menu" aria-labelledby="<?php echo $categorie->id; ?>">
           <?php foreach($sousCategorie as $sc): ?>
           <?php if($categorie->id == $sc->idCategorie) {  ?>
-          <a class="dropdown-item" href="<?php  echo site_url('view/'.$categorie->id.'/'.$sc->id);?>"><?php echo $sc->nomS; ?></a>
+          <a class="dropdown-item" href="view?cat=<?php echo $categorie->id; ?>&scat=<?php echo $sc->id; ?>"><?php echo $sc->nomS; ?></a>
           <?php
         }
         endforeach;

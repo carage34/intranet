@@ -44,7 +44,15 @@
  	    return $res->result();
     }
 
-    public function insertContenu($titre, $desc, $cat, $sousCat, $contenu) {
-
+    public function insertFile($titre, $desc, $cat, $sousCat, $filename, $extension) {
+        $contenu_info = array(
+            'filename' => $filename,
+            'extension' => $extension,
+            'idCat' => $cat,
+            'idSousCat' => $sousCat,
+            'description' => $desc,
+            'titre' => $titre,
+        );
+        $this->db->insert('file', $contenu_info);
     }
  }

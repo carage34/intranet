@@ -28,8 +28,16 @@ class Add extends CI_Controller {
 	}
 
 	public function insertData() {
+        $this->load->model('categorie_model');
+        $catgorie = $this->input->post("cate");
+        $soucCat = $this->input->post("sousCate");
+        $contenu = $this->input->post("contenu");
+        $desc = $this->input->post("desc");
+        if($desc=="") $desc=null;
+        $titre = $this->input->post("title");
+
 	    if($this->input->post("choix")==1) {
-            $config['upload_path'] = './upload';
+            $config['upload_path'] = './upload/';
             $config['allowed_types'] = 'gif|jpg|png|doc|txt';
             $config['max_size'] = 1024 * 8;
             $this->load->library("upload", $config);
@@ -38,17 +46,15 @@ class Add extends CI_Controller {
 
             } else {
                 $data = $this->upload->data();
-                echo $data['file_name'];
+                $filename =  $data['file_name'];
+                $temp = explode(".", $filename);
+                $extension = $temp[1];
                 echo "Fichier upload avec succès";
-                var_dump($this->input->post("contenu"));
+                $this->categorie_model->insertFile($titre, $desc, $catgorie, $soucCat, $filename, $extension);
+                //var_dump($this->input->post("contenu"));
             }
         }
-        $catgorie = $this->input->post("cate");
-        $soucCat = $this->input->post("sousCate");
-        $contenu = $this->input->post("contenu");
-        $desc = $this->input->post("desc");
-        if($desc=="") $desc=null;
-        $titre = $this->input->post("title");
+
 
 
     }
