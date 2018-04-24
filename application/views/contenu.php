@@ -8,7 +8,7 @@
                 <h2 class="text-center">Type de contenu : </h2>
                 <div class="card-body">
                     <?php foreach($types as $type): ?>
-                        <button class="btn btn-outline-primary" style="margin-left:120px;"><?php echo $type->nom;?></button>
+                        <button class="btn btn-outline-primary" style="margin-left:120px;"><?php echo $type->nom;?><span id="<?php echo $type->id; ?>" class="badge badge-light"></span></button>
                     <?php  endforeach; ?>
                 </div>
             </div>
