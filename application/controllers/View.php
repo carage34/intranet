@@ -25,12 +25,16 @@ class View extends CI_Controller
 
     }
 
-    public function getNumberFileThing()
+    public function getNumberOfThing()
     {
         $this->load->model('categorie_model');
-        if ($this->input->post("type")==="file") {
-            echo $this->categorie_model->getNumberFile($this->cat, $this->scat);
+        if ($this->input->post("type")=="file") {
+            $nb = $this->categorie_model->getNumberFile($this->cat, $this->scat);
+            echo $nb;
+        }
+        if($this->input->post("type")=="webLink") {
+            $nb = $this->categorie_model->getNumberWebLink($this->cat, $this->scat);
+            echo $nb;
         }
     }
-
 }

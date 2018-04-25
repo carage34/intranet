@@ -79,10 +79,21 @@ class Categorie_model extends CI_Model
     public function getNumberFile($cat, $scat)
     {
         $this->load->database();
-        $query="SELECT contenu.id, COUNT(*) as total FROM contenu, fichier WHERE contenu.id = fichier.id_contenu AND contenu.idCat=? AND contenu.idSousCat=?";
+        $query = "SELECT contenu.id, COUNT(*) as total FROM contenu, fichier WHERE contenu.id = fichier.id_contenu AND contenu.idCat=? AND contenu.idSousCat=?";
         $res = $this->db->query($query, array($cat, $scat));
         $row = $res->row();
         $nb = $row->total;
         return $nb;
     }
+
+    public function getNumberWebLink($cat, $scat)
+    {
+        $this->load->database();
+        $query = "SELECT contenu.id, COUNT(*) as total FROM contenu, fichier WHERE contenu.id = fichier.id_contenu AND contenu.idCat=? AND contenu.idSousCat=?";
+        $res = $this->db->query($query, array($cat, $scat));
+        $row = $res->row();
+        $nb = $row->total;
+        return $nb;
+    }
+
 }
