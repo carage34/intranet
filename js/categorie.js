@@ -45,7 +45,6 @@ $(function () {
 
     $(document).on('submit', '#formu', function (e) {
         e.preventDefault();
-        var form = $('#formu');
         e.stopImmediatePropagation();
         $('#msg').hide();
         var ok = false;
@@ -96,6 +95,24 @@ $(function () {
                     });
                 } else {
                     alert("Veuillez choisir un fichier");
+                }
+            }
+            if(valeur=="2") {
+                if (($('#weblink').val().trim() === "")) {
+                    alert("Veuillez remplir le champ lien web");
+                } else {
+                    var formdata = new FormData(this);
+                    $.ajax({
+                        url: 'add/insertData',
+                        data: formdata,
+                        processData: false,
+                        contentType: false,
+                        cache: false,
+                        type: 'POST',
+                        success: function(data) {
+                            alert(data)
+                        }
+                    });
                 }
             }
         }

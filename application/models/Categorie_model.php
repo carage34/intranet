@@ -76,6 +76,28 @@ class Categorie_model extends CI_Model
 
     }
 
+    public function insertWebLink($titre, $desc, $cat, $sousCat, $link)
+    {
+        $this->load->database();
+        $contenu_info = array(
+            'idCat' => $cat,
+            'idSousCat' => $sousCat,
+            'titre' => $titre,
+            'description' => $desc,
+        );
+        $this->db->insert('contenu', $contenu_info);
+        $query = "SELECT id FROM contenu ORDER BY id DESC LIMIT 1";
+        $res = $this->db->query($query);
+        $last = $res->row();
+        $stp = $last->id;
+        $link_info = array(
+            'link'=>$link,
+            'id_contenu'=>$stp,
+        );
+        $this->db->insert('weblink', $link_info);
+
+    }
+
     public function getNumberFile($cat, $scat)
     {
         $this->load->database();
@@ -89,7 +111,7 @@ class Categorie_model extends CI_Model
     public function getNumberWebLink($cat, $scat)
     {
         $this->load->database();
-        $query = "SELECT contenu.id, COUNT(*) as total FROM contenu, fichier WHERE contenu.id = fichier.id_contenu AND contenu.idCat=? AND contenu.idSousCat=?";
+        $query = "SELECT contenu.id, COUNT(*) as total FROM weblink, contenu, fichier WHERE contenu.id = weblink.id_contenu AND contenu.idCat=? AND contenu.idSousCat=?";
         $res = $this->db->query($query, array($cat, $scat));
         $row = $res->row();
         $nb = $row->total;

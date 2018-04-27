@@ -57,7 +57,10 @@ class Add extends CI_Controller
                 //var_dump($this->input->post("contenu"));
             }
         }
-
-
+        if($this->input->post("choix")==2) {
+            $link = $this->input->post("contenu");
+            $this->categorie_model->insertWebLink($titre, $desc, $catgorie, $soucCat,$link);
+            echo "Contenu inséré avec succès";
+        }
     }
 }

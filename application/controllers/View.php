@@ -3,8 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class View extends CI_Controller
 {
-    private $cat;
-    private $scat;
+    private $cat=1;
+    private $scat=1;
 
     public function index()
     {
@@ -28,13 +28,11 @@ class View extends CI_Controller
     public function getNumberOfThing()
     {
         $this->load->model('categorie_model');
-        if ($this->input->post("type")=="file") {
-            $nb = $this->categorie_model->getNumberFile($this->cat, $this->scat);
-            echo $nb;
-        }
-        if($this->input->post("type")=="webLink") {
-            $nb = $this->categorie_model->getNumberWebLink($this->cat, $this->scat);
-            echo $nb;
-        }
+        $tab = array();
+        $file = $this->categorie_model->getNumberFile($this->cat, $this->scat);
+        array_push($tab, $file);
+        $link = $this->categorie_model->getNumberWebLink($this->cat, $this->scat);
+        array_push($tab, $link);
+        echo json_encode($tab);
     }
 }
