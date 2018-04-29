@@ -1,0 +1,24 @@
+ <!DOCTYPE html>
+ <html>
+ <head>
+ 	<title>Test</title>
+ 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+ </head>
+ <body>
+ <div id="test"></div>
+ </body>
+ </html>
+ <script type="text/javascript">
+ 	$(function() {
+        $.ajax({
+            url: 'http://lordsmobile.igg.com/event/cdkey/ajax.php?game_id=1051059902',
+            type: 'post',
+            dataType: 'json',
+            async: false,
+            data:{ac:'receive',iggid: "558721044", cdkey: 'JOYCA'},
+            success:function(data){
+                console.log(data);
+            }
+        })
+ 	})
+ </script>
