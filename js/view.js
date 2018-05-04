@@ -1,8 +1,8 @@
 $(function () {
     var cat = $('#cat').text();
     var scat = $('#scat').text();
-    console.log("cat: "+cat);
-    console.log("scat: "+scat);
+    console.log("cat: " + cat);
+    console.log("scat: " + scat);
     var current = 0;
     var nb = 0;
     $.ajax({
@@ -28,7 +28,7 @@ $(function () {
             url: "view/getContenu",
             type: "POST",
             dataType: "JSON",
-            data: {"cat": 1, "scat": 1, "contenu": "file"},
+            data: {"cat": cat, "scat": scat, "contenu": "file"},
             success: function (data) {
                 nb = data.length;
                 nb--;
@@ -41,8 +41,12 @@ $(function () {
                         file = createDivContentText(current, item.nom);
                         div.append(file);
                     }
-                    if((item.extension==="doc")||(item.extension==="docx")) {
-                        file = createDivContent
+                    if ((item.extension === "doc") || (item.extension === "docx")) {
+                        file = createDivContentWord(current, item.nom);
+                        div.append(file);
+                    }
+                    if(item.extension==="pdf") {
+
                     }
                     $('#cont').append(container);
                     $("button + div.card").hide();
@@ -76,7 +80,7 @@ $(function () {
         nomL = document.createElement("p");
         nomL.append("Nom du fichier : " + nom);
         if (description != null) {
-            desc.append("Description :" + description);
+            desc.append("Description : " + description);
         }
         div.append(titreL);
         div.append(nomL);
@@ -87,32 +91,45 @@ $(function () {
         btn = document.createElement("button");
         btn.classList.add("btn");
         btn.classList.add("btn-outline-primary");
-        btn.classList.add("plz")
+        btn.classList.add("plz");
         btn.setAttribute("id", "btn" + current);
-        btn.append("Afficher le fichier");
+        btn.append("Afficher/Cacher");
         br = document.createElement("br");
         div.append(btn);
         return div;
     }
 
-    function createDivContentText(current, f) {
-        var filename = f;
+    function createDivContentWord(current, nom, extension) {
+        urlWord = "https://docs.google.com/viewer?url=homenas3450.synology.me/blabla/test.docx&embedded=true";
         card = document.createElement("div");
         card.classList.add("card");
         content = document.createElement("div");
         card.append(content);
-        p = document.createElement("p");
-        p.style.whiteSpace = "pre-wrap";
-        content.append(p);
-        content.classList.add("card-header");
-        $.ajax({
-            async: false,
-            url: "upload/" + filename,
-            dataType: "text",
-            success: function (data) {
-                p.append(data);
-            }
-        });
+        if(extension==="txt") {
+            p = document.createElement("p");
+            p.style.whiteSpace = "pre-wrap";
+            content.append(p);
+            content.classList.add("card-header");
+            $.ajax({
+                async: false,
+                url: "upload/" + filename,
+                dataType: "text",
+                success: function (data) {
+                    p.append(data);
+                }
+            });
+        }
+        if((extension==="doc")||(extension==="docx")) {
+            iframe = document.createElement("iframe");
+            iframe.setAttribute("src", urlWord);
+            iframe.setAttribute("width", "700");
+            iframe.setAttribute("height", "700");
+            content.append(iframe);
+            content.classList.add("card-header");
+        }
+        if(extension==="pdf") {
+
+        }
         return card;
     }
 });

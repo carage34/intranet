@@ -41,7 +41,7 @@ class Add extends CI_Controller
 
         if ($this->input->post("choix") == 1) {
             $config['upload_path'] = './upload/';
-            $config['allowed_types'] = 'gif|jpg|png|doc|txt';
+            $config['allowed_types'] = 'gif|jpg|png|doc|txt|docx';
             $config['max_size'] = 1024 * 8;
             $this->load->library("upload", $config);
             if (!$this->upload->do_upload('contenu')) {
@@ -57,9 +57,9 @@ class Add extends CI_Controller
                 //var_dump($this->input->post("contenu"));
             }
         }
-        if($this->input->post("choix")==2) {
+        if ($this->input->post("choix") == 2) {
             $link = $this->input->post("contenu");
-            $this->categorie_model->insertWebLink($titre, $desc, $catgorie, $soucCat,$link);
+            $this->categorie_model->insertWebLink($titre, $desc, $catgorie, $soucCat, $link);
             echo "Contenu inséré avec succès";
         }
     }
